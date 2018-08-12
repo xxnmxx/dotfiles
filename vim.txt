@@ -9,3 +9,4 @@ zz - move current line to the middle of the screen
 (Careful with zz, if you happen to have Caps Lock on accidentally, you will save and exit vim!)
 zt - move current line to the top of the screen
 zb - move current line to the bottom of the screen
+:e# -Command will take you to the nth file in a buffer. (n = 1,2,3,..)
