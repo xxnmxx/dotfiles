@@ -3,7 +3,16 @@ scriptencoding utf-8
 set fileencodings=utf-8,cp932,sjis,utf-16le
 set fileformats=unix,dos
 
+" If you want to add pathogen, run command line below. 
+" mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+" curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+" For jedi-vim
+" python3 -m pip install jedi
+" git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
+execute pathogen#infect()
+execute pathogen#helptags()
 syntax enable
+
 filetype plugin indent on
 
 colorscheme slate
@@ -35,7 +44,7 @@ augroup vimrc
 	autocmd!
 	autocmd FileType vim setlocal keywordprg=:help
 augroup END
-nnoremap <Leader>ev:e ~/dotfiles/vimrc<CR>
-nnoremap <Leader>ev:e ~/dotfiles/vimrc<CR>
-" execute pathogen#infect()
-" #execute pathogen#helptags()
+
+nnoremap <Leader>ev: e ~/dotfiles/.vimrc<CR>
+nnoremap <Leader>ev: e ~/dotfiles/vim.txt<CR>
+
