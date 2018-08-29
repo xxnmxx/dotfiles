@@ -9,11 +9,56 @@ set fileformats=unix,dos
 " For jedi-vim
 " python3 -m pip install jedi
 " git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
-execute pathogen#infect()
-execute pathogen#helptags()
+
+"install dein vim
+"curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+"# For example, we just use `~/.cache/dein` as installation directory
+"sh ./installer.sh ~/.cache/dein
+
+"dein Scripts-----------------------------
+if &compatible
+ set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=/home/xxnmxx/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/home/xxnmxx/.cache/dein')
+ call dein#begin('/home/xxnmxx/.cache/dein')
+
+" Let dein manage dein
+" Required:
+ call dein#add('/home/xxnmxx/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+" Add or remove your plugins here:
+ call dein#add('davidhalter/jedi-vim.git')
+ call dein#add('Shougo/neosnippet.vim')
+ call dein#add('Shougo/neosnippet-snippets')
+
+" You can specify revision/branch/tag.
+ call dein#add('Shougo/deol.nvim', { 'rev': '01203d4c9' })
+
+" Required:
+ call dein#end()
+ call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
 syntax enable
 
-filetype plugin indent on
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+ call dein#install()
+endif
+
+"End dein Scripts-------------------------
+
+" execute pathogen#infect()
+" execute pathogen#helptags()
+" syntax enable
+" filetype plugin indent on
 
 colorscheme slate
 set laststatus=2
